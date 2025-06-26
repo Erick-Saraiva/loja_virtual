@@ -12,22 +12,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author sarai
  */
 @Entity
-@Table(name = "product_brand")
-@SequenceGenerator(name = "seq_product_brand", sequenceName = "seq_product_brand", allocationSize = 1, initialValue = 1)
-public class ProductBrand implements Serializable {
-
+@Table(name = "product_category")
+@SequenceGenerator(name = "seq_product_category", sequenceName = "seq_product_category", allocationSize = 1, initialValue = 1)
+public class ProductCategory implements Serializable{
+    
     private static final long serialVersionUID = 1L;
-
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_product_brand")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_product_category")
     private Long id;
-
+    
     @Column(nullable = false)
     private String nameDesc;
 
@@ -47,4 +48,27 @@ public class ProductBrand implements Serializable {
         this.nameDesc = nameDesc;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ProductCategory other = (ProductCategory) obj;
+        return Objects.equals(this.id, other.id);
+    }
+    
+    
+    
 }
