@@ -4,7 +4,6 @@
  */
 package com.lojavirtual.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
